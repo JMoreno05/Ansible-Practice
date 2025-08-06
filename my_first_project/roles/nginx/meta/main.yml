@@ -1,0 +1,17 @@
+---
+dependencies:
+  - { role: common }
+galaxy_info:
+  author: Jessica Moreno
+  description: NginX Web Server role
+  company: Self
+  min_ansible_version: 1.4
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  categories:
+    - database: sql
