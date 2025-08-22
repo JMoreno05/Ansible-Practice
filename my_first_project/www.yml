@@ -1,11 +1,16 @@
 ---
 # www.yml : playbook for web servers
-- hosts: web
-  remote_users: vagrant
-  sudo: yes
+- name: Webserver playbook
+  hosts: webtarget
+    # remote_users: osboxes
+  become: true
   pre_tasks:
-    - shell: echo 'I":" Beginning to configure the web server...'
+    - name: "Output beginning..."
+      ansible.builtin.debug:
+        msg: echo 'I":" Beginning to configure the web server...'
   roles:
     - nginx
   post_tasks:
-    - shell: echo 'I":" Done configuring nginx web server...'
+    - name: "Output end"
+      ansible.builtin.debug:
+        msg: echo 'I":" Done configuring nginx web server...'

@@ -1,0 +1,23 @@
+---
+- name: Download wordpress
+  # get_url instead of using a command to download
+  ansible.builtin.command: /urs/bin/wget -c http://wordpress.org/latest.tar.gz # noqa: command-instead-of-module
+  args:
+    chdir: "{{ wp_srcdir }}"
+    creates: "{{ wp_srcdir }}/latest.tar.gz"
+  register: wp_download
+
+- name: Create nginx docroot
+  ansible.builtin.file:
+    path: "{{ wp_docroot }}"
+    state: directory
+    owner: "{{ wp_user }}"
+    group: "{{ wp_group }}"
+    mode: "0644"
+
+- name: Extract wordpress
+  ansible.builtin.shell: "tar xzf latest.tar.gz && mv wordpress {{ wp_docroot }}/{{ wp_sitedir }}" # noqa: command-instead-of-module
+  args:
+    chdir: "{{ wp_srcdir }}"
+    creates: "{{ wp_docroot }}/{{ wp_sitedir }}"
+    when: wp_download.rc == 0

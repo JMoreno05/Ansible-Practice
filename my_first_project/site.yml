@@ -1,3 +1,7 @@
 ---
 # site.yml : This is a sitewide playbook
-- include: www.yml
+- name: Site wide playbook
+- name: Www playbook
+  import_playbook: www.yml
+- name: DB playbook
+  import_playbook: db.yml

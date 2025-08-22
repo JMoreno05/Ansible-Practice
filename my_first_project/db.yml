@@ -1,0 +1,19 @@
+---
+- name: DB Server Playbook
+  hosts: dbtarget
+  become: true
+  vars:
+    mysql:
+      server: true
+      config:
+        bind: "{{ ansible_eth1.ipv4.address }}"
+  pre_tasks:
+    - name: "DB Output beginning..."
+      ansible.builtin.debug:
+        msg: echo 'I":" Beginning to configure the db server...'
+  roles:
+    - { role: mysql }
+  post_tasks:
+    - name: "DB Output ending..."
+      ansible.builtin.debug:
+        msg: echo 'I":" Finished configuring the db server...'

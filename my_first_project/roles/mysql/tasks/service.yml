@@ -1,0 +1,5 @@
+---
+- name: Start mysql server
+  ansible.builtin.service:
+    name: "{{ mysql_service }}"
+    state: started

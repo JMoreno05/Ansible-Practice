@@ -1,9 +1,6 @@
 ---
-- name: add official nginx repository
-  apt_repository:
-    repo: "deb http://nginx.org/package/ubuntu/ lucid nginx"
-- name: install nginx web server and ensure its at the latest version
-  apt:
+- name: Install nginx web server and ensure its at the latest version
+  ansible.builtin.dnf:
     name: nginx
-    state: latest
-    force: yes
+    state: latest # noqa: package-latest
+    update_cache: true

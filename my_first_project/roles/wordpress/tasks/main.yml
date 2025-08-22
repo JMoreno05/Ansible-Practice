@@ -1,0 +1,7 @@
+---
+# tasks file for wordpress
+- name: Include all wordpress tasks
+  ansible.builtin.include_tasks: "{{ item }}"
+  loop:
+    - install.yml
+    - configure.yml

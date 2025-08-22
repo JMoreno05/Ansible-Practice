@@ -1,5 +1,5 @@
 ---
-- name: start nginx service
-  service:
+- name: Start nginx service
+  ansible.builtin.service:
     name: nginx
     state: started

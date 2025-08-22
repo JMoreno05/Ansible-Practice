@@ -1,17 +1,45 @@
 ---
 # essential tasks should run on all nodes
-- name: create devops group
-  group:
+- name: Install Python for ansible
+  ansible.builtin.dnf:
+    name: python3
+    state: present
+  when: ansible_distribution == "RedHat" and ansible_distribution_major_version >= "8"
+
+- name: Install Python for older RHEL versions
+  ansible.builtin.yum:
+    name: python3
+    state: present
+  when: ansible_distribution == "RedHat" and ansible_distribution_major_version < "8"
+
+- name: Create devops group
+  ansible.builtin.group:
     name: devops
     state: present
-- name: create devops user
-  user:
+- name: Create devops user
+  ansible.builtin.user:
     name: devops_user
     comment: "Devops User"
     uid: 2001
     group: devops
-- name: install htop package
-  apt:
+- name: Download public Key for EPEL Repo
+  ansible.builtin.rpm_key:
+    key: http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9
+    state: "present"
+
+- name: Enable CodeReady Linux Builder repo on Centos
+  ansible.builtin.command: dnf config-manager --set-enabled crb
+  changed_when: true # assume change b/c dnf config-manager does not always indicate changes
+- name: Enable EPEL repo
+  ansible.builtin.dnf:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+    state: present
+- name: Enable EPEL repo next release
+  ansible.builtin.dnf:
+    name: https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-9.noarch.rpm
+    state: present
+- name: Install htop package
+  ansible.builtin.dnf:
     name: htop
     state: present
-    update_cache: yes
+    update_cache: true

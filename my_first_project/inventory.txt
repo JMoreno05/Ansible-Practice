@@ -1,0 +1,5 @@
+[www]
+webtarget ansible_host=192.168.254.11 ansible_ssh_pass=osboxes.org ansible_become_pass=osboxes.org ansible_python_interpreter=/usr/bin/python3.9
+# webtarget2 ansible_host=192.168.254.35 ansible_ssh_pass=osboxes.org ansible_become_pass=osboxes.org ansible_python_interpreter=/usr/bin/python3.9
+[db]
+dbtarget ansible_host=192.168.254.12 ansible_ssh_pass=osboxes.org ansible_become_pass=osboxes.org ansible_python_interpreter=/usr/bin/python3.9

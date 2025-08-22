@@ -1,5 +1,11 @@
 ---
 # This is the main tasks file for nginx role
-- include: install.yml
-- include: configure.yml
-- include: service.yml
+- name: Install
+  ansible.builtin.include_tasks:
+    file: install.yml
+- name: Configure
+  ansible.builtin.include_tasks:
+    file: configure.yml
+- name: Start service
+  ansible.builtin.include_tasks:
+    file: service.yml

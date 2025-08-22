@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: MIT-0
+---
+# vars file for mysql
+mysql:
+  config:
+    bind: 127.0.0.1
+    port: 3306
+    user: mysql
+    datadir: /var/lib/mysql
+    pid: /var/run/mysqld/mysqld.pid
+    cnfpath: /etc/mysql/my.cnf
+    socket: /var/run/mysqld/mysqld.sock
+pkg:
+  server: mysql-server
+  cleint: mysql-client
+  python: python-mysqldb
+server: false
+mysql_service: mysql
+
+# mysql['config']['bind']

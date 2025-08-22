@@ -1,11 +1,10 @@
 ---
-dependencies:
-  - { role: common }
 galaxy_info:
   author: Jessica Moreno
   description: NginX Web Server role
   company: Self
-  min_ansible_version: 1.4
+  license: NA
+  min_ansible_version: "1.4"
   platforms:
     - name: EL
       versions:
@@ -13,5 +12,8 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
-  categories:
-    - database: sql
+  galaxy_tags:
+    - database
+    - sql
+dependencies:
+  - {role: common}

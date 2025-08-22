@@ -1,0 +1,12 @@
+- name: Install mysql client
+  ansible.builtin.apt:
+    name: "{{ mysql['pkg']['client'] }}"
+    update_cache: true
+- name: Install mysql server
+  ansible.builtin.apt:
+    name: "{{ mysql['pkg']['server'] }}"
+    update_cache: true
+  when: mysql.server
+- name: Install mysql python binding
+  ansible.builtin.apt:
+    name: "{{ mysql['pkg']['python'] }}"
