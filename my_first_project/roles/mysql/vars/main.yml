@@ -17,4 +17,5 @@ pkg:
 server: false
 mysql_service: mysql
 
-# mysql['config']['bind']
+# mysql['config']['bind'] if in jinja
+# mysql.config.bind if in plain yaml like when statement or in if of jinja conditional

@@ -1,0 +1,19 @@
+all:
+  hosts:
+    webtarget:
+      ansible_host: 192.168.254.11
+      ansible_user: osboxes
+      ansible_ssh_pass: osboxes.org
+      ansible_become_pass: osboxes.org
+      ansible_python_interpreter: /usr/bin/python3.9
+    dbtarget:
+      ansible_host: 192.168.254.12
+      ansible_user: osboxes
+      ansible_ssh_pass: osboxes.org
+      ansible_become_pass: osboxes.org
+      ansible_python_interpreter: /usr/bin/python3.9
+  children:
+    www:
+      hosts: webtarget
+    db:
+      hosts: dbtarget
