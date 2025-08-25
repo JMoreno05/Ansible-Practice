@@ -2,8 +2,8 @@
 ---
 # tasks file for mysql
 - name: Configure mysql
-  include_tasks: "{{ item }}"
+  ansible.builtin.include_tasks: "{{ item }}"
   loop:
     - configure.yml
     - service.yml
-  when: mysql.server
+  when: server
