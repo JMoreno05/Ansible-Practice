@@ -6,4 +6,4 @@
   loop:
     - configure.yml
     - service.yml
-  when: mysql.server
+  when: server

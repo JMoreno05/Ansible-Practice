@@ -1,6 +1,5 @@
 ---
 # site.yml : This is a sitewide playbook
-- name: Site wide playbook
 - name: Www playbook
   import_playbook: www.yml
 - name: DB playbook
