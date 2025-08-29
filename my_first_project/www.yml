@@ -10,7 +10,7 @@
         msg: echo 'I":" Beginning to configure the web server...'
   roles:
     - { role: nginx, when: ansible_os_family == 'Debian'}
-    - php5-fpm
+    - php5_fpm
     - wordpress
   post_tasks:
     - name: "Output end"
