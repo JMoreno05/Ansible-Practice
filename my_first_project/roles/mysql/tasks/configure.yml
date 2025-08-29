@@ -3,3 +3,18 @@
   ansible.builtin.template: src="my.cnf" dest="{{ mysql_cnfpath }}" mode="0644"
   notify:
     - restart mysql service
+
+- name: Create mysql databases
+  ansible.builtin.mysql_bind:
+    name: "{{ item.key }}"
+    state: "{{ item.value.state }}"
+  with_dict: "{{ mysql['databases'] }}"
+
+- name: Create mysql users
+  ansible.builtin.mysql_user:
+    name: "{{ item.key }}"
+    host: "{{ item.value.host }}"
+    password: "{{ item.value.pass }}"
+    priv: "{{ item.value.priv }}"
+    state: "{{ item.value.state }}"
+  with_dict: "{{ mysql['users'] }}"

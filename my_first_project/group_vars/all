@@ -1,1 +1,24 @@
 mysql_bind: "{{ ansible_eth0.ipv4.address }}"
+mysql:
+  databases:
+    fifalive:
+      state: present
+    fifanews:
+      state: present
+  users:
+    fifa:
+     pass: supersecure1234
+     host: '%'
+     priv: '*.*:ALL'
+     state: present
+nginx:
+  phpsites:
+    fifanews:
+      name: fifanews.com
+      port: 8080
+      doc_root: /var/www/fifanews
+# ansible_managed is a ansible default variable for templates that includes
+# server is managed by ansible
+# path to this file in the repo
+# last modification time
+# and the user who modified it

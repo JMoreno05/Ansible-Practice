@@ -9,7 +9,9 @@
       ansible.builtin.debug:
         msg: echo 'I":" Beginning to configure the web server...'
   roles:
-    - nginx
+    - { role: nginx, when: ansible_os_family == 'Debian'}
+    - php5-fpm
+    - wordpress
   post_tasks:
     - name: "Output end"
       ansible.builtin.debug:

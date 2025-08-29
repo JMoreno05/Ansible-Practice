@@ -1,0 +1,6 @@
+---
+- name: Install php5 fpm and family
+  ansible.builtin.apt:
+    name: "{{ item }}"
+  with_items: "{{ php5.packages }}"
+  notify: Restart php5_fpm service

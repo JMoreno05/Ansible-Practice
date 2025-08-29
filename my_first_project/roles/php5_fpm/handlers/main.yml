@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: MIT-0
+---
+# handlers file for php5-fpm
+- name: Restart php5_fpm service
+  ansible.builtin.service:
+    name: "{{ php5['service']['name'] }}"
+    state: restarted
