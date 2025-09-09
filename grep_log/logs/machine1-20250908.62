@@ -1,0 +1,7 @@
+2025-09-08 14:00:01 INFO T001 START Transfer initiated. Source: /data/source/LoremIpsum.txt, Destination: /data/destination/LoremIpsum.txt, Size: 1024KB
+2025-09-08 14:00:05 INFO T001 PROGRESS Transfer in progress. Bytes transferred: 512KB
+2025-09-08 14:00:10 INFO T001 COMPLETE Transfer successful. File: /data/source/LoremIpsum.txt to /data/destination/LoremIpsum.txt, Duration: 9s
+2025-09-08 14:00:15 INFO T002 START Transfer initiated. Source: /data/source/image.jpg, Destination: /backup/images/image.jpg, Size: 5MB
+2025-09-08 14:00:20 ERROR T002 FAILED Transfer failed. Reason: Disk space full on destination. File: /data/source/image.jpg
+2025-09-08 14:00:25 WARNING T003 RETRY Transfer attempt failed, retrying. Source: /data/source/report785635148.pdf, Destination: /reports/report785635148.pdf, Attempt: 1
+2025-09-08 14:00:30 INFO T003 COMPLETE Transfer successful after retry. File: /data/source/report.pdf to /reports/report785635148.pdf

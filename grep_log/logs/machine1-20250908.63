@@ -1,0 +1,7 @@
+2025-09-08 14:00:01 INFO T001 START Transfer initiated. Source: /data/source/Helios123.txt, Destination: /data/destination/Helios123.txt, Size: 1024KB
+2025-09-08 14:00:05 INFO T001 PROGRESS Transfer in progress. Bytes transferred: 512KB
+2025-09-08 14:00:10 INFO T001 COMPLETE Transfer successful. File: /data/source/Helios123.txt to /data/destination/Helios123.txt, Duration: 9s
+2025-09-08 14:00:15 INFO T002 START Transfer initiated. Source: /data/source/picture.jpg, Destination: /backup/pictures/picture.jpg, Size: 5MB
+2025-09-08 14:00:20 ERROR T002 FAILED Transfer failed. Reason: Disk space full on destination. File: /data/source/picture.jpg
+2025-09-08 14:00:25 WARNING T003 RETRY Transfer attempt failed, retrying. Source: /data/source/pamphlet.pdf, Destination: /reports/pamphlet.pdf, Attempt: 1
+2025-09-08 14:00:30 INFO T003 COMPLETE Transfer successful after retry. File: /data/source/pamphlet.pdf to /reports/pamphlet.pdf

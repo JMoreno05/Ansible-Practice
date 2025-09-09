@@ -1,0 +1,34 @@
+---
+- name: Search logs by filename and date
+  hosts: localhost
+  # gather_facts: false
+  vars:
+    substr: "xyz"
+    path: "/home/jmoreno/Repos/Ansible-Practice/grep_log/logs/"
+
+  tasks:
+    - name: Test connectivity
+      ansible.builtin.debug:
+        msg: "connected to {{ ansible_os_family }}"
+
+    - name: Find files in a directory
+      ansible.builtin.find:
+        paths: "{{ path }}"
+      register: found_files
+
+    - name: Debug found files
+      ansible.builtin.debug:
+        var: found_files.files
+      #   msg: "{{ item.path }}"
+      # loop: "{{ found_files.files }}"
+
+    # - name: Find Lines in logs
+    #   ansible.builtin.include_role:
+    #     name: my_application_role
+    #   vars:
+    #     unique_fname_substr: "{{ substr }}"
+    #     log_dir_path: "{{ path }}"
+    #   loop: "{{ files }}"
+
+    # is password diff for each server?
+    # how to assign AAP credentials to each host in inventory

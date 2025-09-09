@@ -1,0 +1,16 @@
+---
+- name: Search specific Logfile # noqa: no-changed-when
+  ansible.builtin.command: "grep '{{ unique_fname_substr }}' {{ log_dir_path }}"
+  register: grep_output
+  ignore_errors: true
+
+- name: Display grep results
+  ansible.builtin.debug:
+    var: grep_output.stdout_lines
+  when: grep_output.rc == 0 # only display lines if lines are found
+
+- name: Handle no string found  ## should not print for every filename
+
+# 0-M lines possible in file
+# multiple files per display
+# multiple servers to check
